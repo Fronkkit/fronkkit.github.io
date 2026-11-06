@@ -18,6 +18,7 @@
 <meta name="theme-color" content="#efe8de">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="agent-flow.css">
 
 </head>
 <body>
@@ -30,6 +31,7 @@
       <li><a href="#journey">Journey</a></li>
       <li><a href="#expertise">Expertise</a></li>
       <li><a href="#tools">Tools</a></li>
+      <li><a href="#agents">Agents</a></li>
       <li><a href="#credentials">Credentials</a></li>
       <li class="m-only"><a href="#contact">Contact</a></li>
     </ul>
@@ -370,11 +372,30 @@
   </div>
 </section>
 
+<!-- ===== AI AGENT TEAM ===== -->
+<section class="agents wrap" id="agents">
+  <div class="sec-head">
+    <div><span class="eyebrow sec-no">05 / Agents</span><h2>AI Agent Team</h2></div>
+    <p>A small team of AI agents that drafts my weekly coordination reports. I designed the workflow and built it together with AI; every report waits for my approval.</p>
+  </div>
+  <div class="af" id="agentFlow" data-logo="images/logo.png" tabindex="0" aria-label="Animated workflow of the AI agent team. Use the left and right arrow keys to change steps.">
+    <div class="af-fit"><div class="af-stage"><svg class="af-wires" width="1200" height="515" aria-hidden="true"></svg></div></div>
+    <p class="af-hint">Swipe sideways to see the whole diagram.</p>
+    <div class="af-foot">
+      <div class="af-num" aria-hidden="true">00</div>
+      <div aria-live="polite"><span class="af-when"></span><h3></h3><p></p></div>
+      <div class="af-ctl"><button class="filter af-prev" type="button" aria-label="Previous step">‹</button><button class="filter af-play" type="button">Pause</button><button class="filter af-next" type="button" aria-label="Next step">›</button></div>
+    </div>
+    <div class="af-dots" role="group" aria-label="Steps"></div>
+  </div>
+  <p class="af-note">Project names and data are left out on purpose. The agents run on the company computer and nothing is shared outside it.</p>
+</section>
+
 <!-- ===== CREDENTIALS ===== -->
 <section class="creds" id="credentials">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="eyebrow sec-no">05 / Credentials</span><h2>Credentials</h2></div>
+      <div><span class="eyebrow sec-no">06 / Credentials</span><h2>Credentials</h2></div>
       <p>Licensed, certified, and working to ISO 19650.</p>
     </div>
     <div class="creds-grid">
@@ -651,6 +672,7 @@
 </svg></template>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="script.js"></script>
+<script src="agent-flow.js"></script>
 <script data-goatcounter="https://fronkkit.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

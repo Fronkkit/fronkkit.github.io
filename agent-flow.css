@@ -1,0 +1,60 @@
+/* ===== AI Agent Team workflow (section #agents) — uses the site's tokens so light/dark follow the theme button ===== */
+.agents { padding-block: 110px 120px; }
+.af { border: 1px solid var(--line); background: var(--paper); position: relative; }
+.af-fit { position: relative; width: 100%; overflow: hidden; }
+.af-fit.scroll { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+.af-hint { display: none; margin: 0; padding: 8px 16px 0; font-size: 12px; color: var(--muted); }
+.af-fit.scroll + .af-hint { display: block; }
+.af-stage { position: absolute; left: 0; top: 0; width: 1200px; height: 515px; transform-origin: 0 0; }
+.af-col { position: absolute; top: 14px; font: 400 10.5px/1 var(--f-body); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.af svg.af-wires { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.af-wires path { fill: none; stroke: var(--line); stroke-width: 1.4; transition: stroke .4s, stroke-width .4s, opacity .4s; }
+.af-wires path.dash { stroke-dasharray: 4 5; }
+.af-wires path.on { stroke: var(--wood); stroke-width: 2; }
+.af-wires path.dim { opacity: .35; }
+
+.af-n { position: absolute; display: flex; align-items: center; gap: 10px; background: var(--cream); border: 1px solid var(--line); padding: 9px 12px; transition: opacity .35s, border-color .35s, box-shadow .35s, transform .35s; }
+.af-n .ic { font: 500 10px/1 var(--f-body); letter-spacing: .08em; color: var(--wood); border: 1px solid var(--line); padding: 5px 0; width: 40px; text-align: center; flex: none; }
+.af-n b { display: block; font: 500 13.5px/1.25 var(--f-body); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.af-n small { display: block; font: 300 11.5px/1.3 var(--f-body); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.af-n .t { min-width: 0; flex: 1; }
+.af-n.on { border-color: var(--wood); box-shadow: 0 0 0 3px color-mix(in srgb, var(--wood) 18%, transparent); transform: translateY(-1px); }
+.af-n.dim { opacity: .42; }
+.af-n.plan { border-style: dashed; }
+.af-n.plan .ic { border-style: dashed; color: var(--muted); }
+.af-agent { width: 228px; flex-wrap: wrap; padding: 11px 13px; }
+.af-agent .ic { font: 400 20px/1 var(--f-display); letter-spacing: 0; padding: 6px 0; width: 42px; }
+.af-agent .ph { position: absolute; top: -8px; right: 10px; background: var(--paper); padding: 0 6px; font: 400 9.5px/16px var(--f-body); letter-spacing: .18em; text-transform: uppercase; color: var(--wood); }
+.af-agent.plan .ph { color: var(--muted); }
+.af-bar { width: 100%; height: 2px; background: var(--line); margin-top: 8px; overflow: hidden; }
+.af-bar i { display: block; height: 100%; width: 0; background: var(--wood); }
+.af-agent.plan .af-bar i { background: var(--muted); }
+.af-gate { flex-direction: column; justify-content: center; text-align: center; width: 84px; height: 420px; padding: 10px 6px; gap: 10px; }
+.af-gate b, .af-gate small { white-space: normal; }
+.af-gate .face { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; background: var(--paper); }
+.af-gate .face img { width: 30px; height: 30px; filter: var(--logo-filter); }
+.af-gate .stamp { font: 500 10px/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--paper); background: var(--wood); padding: 5px 8px; opacity: 0; transform: scale(.7) rotate(-6deg); transition: all .35s cubic-bezier(.3,1.6,.5,1); }
+.af-gate.ok .stamp { opacity: 1; transform: scale(1) rotate(-6deg); }
+.af-aud { width: 112px; flex-direction: column; align-items: flex-start; gap: 3px; }
+.af-aud b, .af-aud small { white-space: normal; }
+.af-chip { position: absolute; left: 0; top: 0; z-index: 5; font: 500 10px/1 var(--f-body); letter-spacing: .06em; padding: 5px 8px; background: var(--wood); color: var(--paper); white-space: nowrap; pointer-events: none; will-change: transform; border-radius: 999px; }
+.af-chip.plan { background: var(--muted); }
+
+.af-foot { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 22px; align-items: center; border-top: 1px solid var(--line); padding: 18px 22px; background: var(--cream); }
+.af-num { font: 400 46px/0.9 var(--f-display); color: var(--wood); min-width: 1.4em; }
+.af-when { font: 400 11px/1 var(--f-body); letter-spacing: .2em; text-transform: uppercase; color: var(--wood); }
+.af-foot h3 { font: 400 clamp(22px, 2.2vw, 30px)/1.1 var(--f-display); margin: 6px 0 4px; }
+.af-foot p { margin: 0; font-size: 14px; color: var(--muted); max-width: 80ch; }
+.af-ctl { display: flex; gap: 8px; align-items: center; }
+.af-ctl .filter { padding: 10px 14px; }
+.af-dots { display: flex; gap: 6px; padding: 0 22px 18px; background: var(--cream); }
+.af-dots button { appearance: none; border: 0; padding: 0; width: 22px; height: 2px; background: var(--line); cursor: pointer; transition: background .3s, width .3s; }
+.af-dots button[aria-current="true"] { background: var(--wood); width: 40px; }
+.af-note { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
+@media (max-width: 760px) {
+  .agents { padding-block: 80px; }
+  .af-foot { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 16px; }
+  .af-num { display: none; }
+  .af-dots { padding: 0 16px 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .af-n, .af-gate .stamp, .af-wires path { transition: none; } }
